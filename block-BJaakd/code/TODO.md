@@ -77,7 +77,7 @@ function wait(time){
 
 ```js
 // Your code
-let twentyone = new Promise((res,rej)=>{
+let promise = new Promise((res,rej)=>{
     res(21)
 })
 .then((value)=>{
@@ -86,7 +86,12 @@ let twentyone = new Promise((res,rej)=>{
 .then((value)=>{
     return value+100
 })
-.then((res)=>)
+.then((res)=>{
+    if(value>100){
+        throw new Error('Something went wrong!')
+    }
+})
+.catch(console.log)
 ```
 
 7. Do the following:
@@ -99,6 +104,19 @@ let twentyone = new Promise((res,rej)=>{
 
 ```js
 // Your code
+let promise = new Promise((res,rej)=>{
+    res(['A'])
+})
+.then((value)=>{
+    console.log(value)
+    return value.concat('B')
+})
+.then((value)=>{
+    value.reduce((acc,cv,i)=>{
+        acc[i]= cv
+        return acc
+    },{})
+})
 ```
 
 8. Do the following:
@@ -110,6 +128,22 @@ let twentyone = new Promise((res,rej)=>{
 
 ```js
 // Your code
+let first = new Promise((res,rej) =>{
+    res(1)
+})
+first
+.then((value)=>{
+    console.log(value)
+    return 2
+})
+.then((value)=>{
+    console.log(value)
+    return 3
+})
+.then((value)=>{
+    console.log(value)
+    return 4
+})
 ```
 
 9. Do the following:
@@ -121,6 +155,22 @@ let twentyone = new Promise((res,rej)=>{
 
 ```js
 // Your code
+let first = new Promise((res,rej) =>{
+    res(1)
+})
+first.then((value)=>{
+    console.log(value)
+    return 2
+})
+first.then((value)=>{
+    console.log(value)
+    return 3
+})
+first.then((value)=>{
+    console.log(value)
+    return 4
+})
+
 ```
 
 10. Try to understand the difference between the problem 8 and 9. Write your observation.
