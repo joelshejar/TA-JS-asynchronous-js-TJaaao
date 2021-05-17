@@ -1,9 +1,27 @@
-const one = new Promise((resolve, reject) =>
-  setTimeout(() => resolve('Arya'), 1000)
-);
-const two = new Promise((resolve, reject) =>
-  setTimeout(() => reject(new Error('Whoops!')), 2000)
-);
-const three = new Promise((resolve, reject) =>
-  setTimeout(() => resolve('John'), 3000)
-);
+let times = [1,2,3,4]
+let timesPromises = times.map((seconds)=>{
+    new Promise((res)=>{
+        setTimeout(()=>{
+            res(Math.random())
+        },seconds*1000)
+    })
+})
+
+let users = ['samsangeeth','shadab-me','ikushaldave','josephv7','beingfranklin']
+let usersPromises = users.map((user)=>{
+    fetch(`https://api.github.com/users/${user}`).then((res)=>res.json())
+})
+Promise.all(usersPromises).then((users)=>{
+    users.forEach((user)=>{
+        console.log(user.followers)
+    })
+})
+
+
+
+
+
+
+
+
+
