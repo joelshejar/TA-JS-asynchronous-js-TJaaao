@@ -2,7 +2,7 @@ const url = `https://www.anapioficeandfire.com/api/books`
 let root = document.querySelector('.content')
 
 function handleSpinner(status=false){
-    
+
 }
 
 
@@ -75,26 +75,6 @@ if(navigator.onLine){
 }else{
     handleErrorMessage(`Check your internet connection!`)
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
